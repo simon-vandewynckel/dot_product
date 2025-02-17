@@ -6,7 +6,10 @@
 
 __version__ = "0.0.0"
 
+import numba
 
+
+@numba.jit
 def dot_product(a: list, b: list):
     assert len(a) == len(b)
     result = 0

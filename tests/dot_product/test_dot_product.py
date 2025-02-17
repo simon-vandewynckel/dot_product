@@ -7,16 +7,24 @@ import sys
 sys.path.insert(0, ".")
 import time
 import dot_product.dot_product as dp
+import numpy as np
 
 
 def test_dot_product_benchmark():
+    # make sure dot_product is jitted
+    v1 = np.arange(1 << 16)
+    v2 = np.arange(0, 1 << (16 + 1), 2)
+    _ = dp.dot_product(v1, v2)
+
+    print("| size | runtime |")
+    print("| --- | --- |")
     for size in range(24):
-        v1 = [i for i in range(1 << size)]
-        v2 = [i * 2 for i in range(1 << size)]
+        v1 = np.arange(1 << size)
+        v2 = np.arange(0, 1 << (size + 1), 2)
         start = time.process_time()
         _ = dp.dot_product(v1, v2)
         end = time.process_time()
-        print(1 << size, ":", end - start, "s")
+        print("|", 1 << size, "|", end - start, "s", "|")
 
 
 # ==============================================================================
