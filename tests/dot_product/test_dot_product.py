@@ -10,13 +10,13 @@ import dot_product.dot_product as dp
 
 
 def test_dot_product_benchmark():
-    for size in range(32):
+    for size in range(24):
         v1 = [i for i in range(1 << size)]
         v2 = [i * 2 for i in range(1 << size)]
         start = time.process_time()
         _ = dp.dot_product(v1, v2)
         end = time.process_time()
-        print("time", size, ":", end - start, "s")
+        print(1 << size, ":", end - start, "s")
 
 
 # ==============================================================================
