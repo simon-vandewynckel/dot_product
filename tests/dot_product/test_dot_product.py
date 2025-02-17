@@ -3,19 +3,20 @@
 """Tests for dot_product package."""
 
 import sys
-sys.path.insert(0,'.')
 
-import dot_product
-
-
-def test_hello_default_arg():
-    result = dot_product.hello()
-    assert result == "Hello world!"
+sys.path.insert(0, ".")
+import time
+import dot_product.dot_product as dp
 
 
-def test_hello_me():
-    result = dot_product.hello('me')
-    assert result == "Hello me!"
+def test_dot_product_benchmark():
+    for size in range(32):
+        v1 = [i for i in range(1 << size)]
+        v2 = [i * 2 for i in range(1 << size)]
+        start = time.process_time()
+        _ = dp.dot_product(v1, v2)
+        end = time.process_time()
+        print("time", size, ":", end - start, "s")
 
 
 # ==============================================================================
@@ -25,10 +26,10 @@ def test_hello_me():
 # that the source directory is on the path
 # ==============================================================================
 if __name__ == "__main__":
-    the_test_you_want_to_debug = test_hello_default_arg
+    the_test_you_want_to_debug = test_dot_product_benchmark
 
     print("__main__ running", the_test_you_want_to_debug)
     the_test_you_want_to_debug()
-    print('-*# finished #*-')
+    print("-*# finished #*-")
 
 # eof

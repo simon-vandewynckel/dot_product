@@ -4,17 +4,12 @@
 ## Python package dot_product
 """
 
-__version__ = '0.0.0'
+__version__ = "0.0.0"
 
-# example code
-def hello(who: str = 'world') -> str:
-    """'Hello world' method.
 
-    Args:
-        who: whom to say hello to
-
-    Returns:
-        a string
-    """
-    return f"Hello {who}!"
-
+def dot_product(a: list, b: list):
+    assert len(a) == len(b)
+    result = 0
+    for ai, bi in zip(a, b):
+        result += ai * bi
+    return result
