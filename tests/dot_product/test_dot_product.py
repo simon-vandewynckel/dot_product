@@ -12,17 +12,13 @@ import numpy as np
 
 def test_dot_product_benchmark():
     # make sure dot_product is jitted
-    v1 = np.arange(1 << 16)
-    v2 = np.arange(0, 1 << (16 + 1), 2)
-    _ = dp.dot_product(v1, v2)
-
     print("| size | runtime |")
     print("| --- | --- |")
     for size in range(24):
         v1 = np.arange(1 << size)
         v2 = np.arange(0, 1 << (size + 1), 2)
         start = time.process_time()
-        _ = dp.dot_product(v1, v2)
+        _ = np.dot(v1, v2)
         end = time.process_time()
         print("|", 1 << size, "|", end - start, "s", "|")
 
