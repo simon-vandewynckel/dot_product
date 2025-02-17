@@ -1,0 +1,9 @@
+{
+  "full_name": "Simon Vandewynckel",
+  "email_address": "simon.vandewynckel@student.uantwerpen.be",
+  "github_username": "simon-vandewynckel",
+  "project_name": "dot_product",
+  "package_name": "dot_product",
+  "project_short_description": "Compare dot product implementations",
+  "minimal_python_version": "3.9"
+}
